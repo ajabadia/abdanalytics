@@ -1,8 +1,20 @@
+import { Suspense } from 'react';
 import { getTranslations } from 'next-intl/server';
 import { ensureIndustrialAccess } from '@/lib/session';
-import { LayoutDashboard, Award } from 'lucide-react';
+import { LayoutDashboard } from 'lucide-react';
 import { AdminPageHeader } from '@abd/styles';
 import { GlobalFooter } from '@abd/ecosystem-widgets';
+import { getDashboardMetrics } from '@/actions/dashboard-actions';
+import DashboardClient from '@/components/admin/DashboardClient';
+import DashboardSkeleton from '@/components/admin/DashboardSkeleton';
+
+/**
+ * 🛰️ Inner Data Wrapper Component that handles DB Querying asynchronously
+ */
+async function DashboardDataWrapper({ locale }: { locale: string }) {
+  const metrics = await getDashboardMetrics();
+  return <DashboardClient metrics={metrics} locale={locale} />;
+}
 
 /**
  * 🛰️ Central Admin Analytics Portal Page (Federated Server Component)
@@ -27,24 +39,10 @@ export default async function AdminPortalPage({ params }: { params: Promise<{ lo
           description={<>{t('auditDesc')} <span className="text-primary font-bold">{user.tenantId}</span>.</>}
         />
 
-        {/* Dashboard Grid - Cascarón Placeholder */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          
-          <div className="p-6 bg-card border border-border rounded-xl flex flex-col gap-4">
-            <div className="p-2.5 bg-secondary/10 border border-border text-primary w-fit rounded-lg">
-              <Award className="w-5 h-5" />
-            </div>
-            <h3 className="text-sm font-black uppercase tracking-wider text-foreground">
-              {a('title')}
-            </h3>
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              {locale === 'es'
-                ? 'El cuadro de mando unificado de analíticas consolidará las métricas de la suite próximamente.'
-                : 'The unified analytics dashboard will consolidate suite metrics here soon.'}
-            </p>
-          </div>
-
-        </div>
+        {/* Dashboard Content under Async Suspense Boundary */}
+        <Suspense fallback={<DashboardSkeleton />}>
+          <DashboardDataWrapper locale={locale} />
+        </Suspense>
 
         <GlobalFooter label={t('footer')} opacity={0.8} />
 
@@ -52,3 +50,4 @@ export default async function AdminPortalPage({ params }: { params: Promise<{ lo
     </main>
   );
 }
+
