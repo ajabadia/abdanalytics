@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { getLocale } from "next-intl/server";
-import { getIndustrialSession } from "@abd/satellite-sdk";
+import { getIndustrialSession, BrandingStyles } from "@abd/satellite-sdk";
 import { SessionProvider } from "@abd/satellite-sdk/client";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { resolveTenantBranding } from "@/lib/tenant-branding";
-import { generateTenantCss } from "@abd/styles";
+
 import "./globals.css";
 
 const geistSans = Geist({
@@ -31,18 +30,11 @@ export default async function RootLayout({
 }) {
   const locale = await getLocale();
   const session = await getIndustrialSession();
-  const branding = await resolveTenantBranding();
-  const customCss = branding?.theme ? generateTenantCss(branding.theme) : "";
 
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        {customCss && (
-          <style id="tenant-branding-gateway" dangerouslySetInnerHTML={{ __html: customCss }} />
-        )}
-        {branding?.logoUrl && (
-          <link rel="icon" href={branding.logoUrl} />
-        )}
+        <BrandingStyles />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased navbar-top-layout`} suppressHydrationWarning>
         <ThemeProvider

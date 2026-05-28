@@ -1,19 +1,6 @@
+// Re-export canonical session helpers from @abd/satellite-sdk
+// This file is a transitional shim — migrate imports to @abd/satellite-sdk directly
 'use server';
 
-import {
-  getIndustrialSession as _getIndustrialSession,
-  ensureIndustrialAccess as _ensureIndustrialAccess,
-} from '@abd/satellite-sdk';
-import type { FederatedSession, UserProfile } from '@/lib/session-types';
-
-export async function getIndustrialSession(): Promise<FederatedSession> {
-  return await _getIndustrialSession();
-}
-
-/**
- * 🛡️ Assertion Helper
- * Throws if the user is not authenticated or doesn't have the required role.
- */
-export async function ensureIndustrialAccess(requiredRole?: string): Promise<UserProfile> {
-  return await _ensureIndustrialAccess(requiredRole);
-}
+export { getIndustrialSession, ensureIndustrialAccess } from '@abd/satellite-sdk';
+export type { FederatedSession, UserProfile } from '@abd/satellite-sdk';

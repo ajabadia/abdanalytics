@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Users, Award, Database, ShieldCheck, Server, AppWindow, ShieldAlert } from 'lucide-react';
-import type { DashboardMetrics } from '@/actions/dashboard-actions';
+import type { DashboardMetrics } from '@/types/dashboard-metrics';
 
 interface SuiteTabProps {
   metrics: DashboardMetrics;

@@ -36,6 +36,18 @@ export function SidebarNavigation({ session, logoUrl, tenantSelectorSlot, settin
     if (typeof window === 'undefined') return '';
     return window.location.search.substring(1);
   });
+  const [logsAuditUrl, setLogsAuditUrl] = React.useState<string>('/admin/audit');
+
+  React.useEffect(() => {
+    const hostname = window.location.hostname;
+    if (hostname === 'localhost' || hostname === '127.0.0.1') {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setLogsAuditUrl(`http://localhost:3600/${locale}/admin/audit`);
+    } else {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setLogsAuditUrl(`/admin/audit`);
+    }
+  }, [locale]);
 
   const isLoggedIn = session.authenticated && !!session.user;
   const user = session.user;
@@ -47,7 +59,7 @@ export function SidebarNavigation({ session, logoUrl, tenantSelectorSlot, settin
       icon: <Home size={14} />
     },
     {
-      href: '/admin/audit',
+      href: logsAuditUrl,
       label: locale === 'es' ? 'Auditoría en Cadena' : 'Chain Auditing',
       icon: <ShieldCheck size={14} />,
       requiresAdmin: true

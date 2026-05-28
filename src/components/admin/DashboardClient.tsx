@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { AlertTriangle } from 'lucide-react';
-import type { DashboardMetrics } from '@/actions/dashboard-actions';
+import type { DashboardMetrics } from '@/types/dashboard-metrics';
 import SuiteTab from './tabs/SuiteTab';
 import LmsTab from './tabs/LmsTab';
 import SecurityTab from './tabs/SecurityTab';

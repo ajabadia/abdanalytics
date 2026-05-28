@@ -13,7 +13,7 @@ import {
   AreaChart, 
   Area 
 } from 'recharts';
-import type { DashboardMetrics } from '@/actions/dashboard-actions';
+import type { DashboardMetrics } from '@/types/dashboard-metrics';
 import { CustomTooltip } from './CustomTooltip';
 
 interface LmsTabProps {
