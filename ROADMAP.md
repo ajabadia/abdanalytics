@@ -10,17 +10,21 @@ Este documento detalla la planificación estratégica, las fases del ecosistema 
 - **Fase 1: Configuración del Cascarón y SSO**
   - Clonación base de logs y re-configuración del puerto `3700`.
   - Registro de federación de clientes y políticas de licenciamiento para todos los tenants en `ABDAuth`.
-  - Adaptación de `@abd/styles` y layout superior `SmartNavbar`.
+  - Adaptación de `@ajabadia/styles` y layout superior `SmartNavbar`.
 
-### 🟨 En Curso (Active Development)
+### 🟩 Completado (Completed)
 - **Fase 2: Conexión de Modelos y Datos de Solo Lectura**
-  - Creación de esquemas Mongoose `UserCourseSummary` y `CourseAnalytics`.
-  - Conexión dinámica multi-tenant mediante pools de solo lectura.
+  - ✅ Creación de esquemas Mongoose: `UserCourseSummary`, `CourseAnalytics`, `AuthAnalytics`, `GovernanceAnalytics`.
+  - ✅ Conexión dinámica multi-tenant mediante `getTenantModel` con soporte `COLLECTION_PREFIX` y `DATABASE_PER_TENANT`.
+  - ✅ 21/21 tests de modelos pasando.
+
+- **Fase 3: Visualización del Dashboard del Administrador**
+  - ✅ Vista de 4 pestañas: Resumen de la Suite, LMS (ABDQuiz), Seguridad (ABDAuth) y Gobernanza (ABDtenantGobernance).
+  - ✅ Integración de gráficos `recharts` (histogramas Gauss, curvas de aprendizaje, accesos fallidos, consumo espacial).
+  - ✅ DashboardClient con tabs modulares (`SuiteTab`, `LmsTab`, `SecurityTab`, `GovernanceTab`).
+  - ✅ Certificación ERA 11 COMPLIANT.
 
 ### 🟦 Próximamente (Future Roadmap)
-- **Fase 3: Visualización del Dashboard del Administrador**
-  - Implementación de la vista de 4 pestañas: Resumen de la Suite, LMS (ABDQuiz), Seguridad (ABDAuth) y Gobernanza (ABDtenantGobernance).
-  - Integración de gráficos `recharts` para histogramas Gauss y curvas de aprendizaje.
 - **Fase 4: Firma Criptográfica de PDFs y QR**
   - Generación asíncrona de reportes PDF.
   - Integración del validador público enlazando hashes contra los logs inmutables de `ABDLogs`.

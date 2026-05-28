@@ -1,6 +1,6 @@
 'use server';
 
-import { withTenantContext } from '@/lib/database/tenant-model';
+import { withTenantContext } from '@ajabadia/satellite-sdk';
 import type { DashboardMetrics } from '@/types/dashboard-metrics';
 import { getMockDashboardMetrics } from '@/lib/mock-dashboard-data';
 import UserCourseSummary from '@/models/UserCourseSummary';

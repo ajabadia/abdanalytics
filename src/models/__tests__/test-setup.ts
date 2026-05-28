@@ -2,7 +2,7 @@ import { vi, beforeAll, afterAll } from 'vitest';
 import mongoose from 'mongoose';
 import { AsyncLocalStorage } from 'async_hooks';
 
-// ── Mock @abd/satellite-sdk ───────────────────────────────
+// ── Mock @ajabadia/satellite-sdk ───────────────────────────────
 // Must be at top level for Vitest hoisting. Use `var` to avoid temporal dead zone
 // in the mock factory closure (var is hoisted and initialized to undefined).
 // eslint-disable-next-line prefer-const
@@ -12,7 +12,7 @@ var tenantStorage = new AsyncLocalStorage<{
   isolationStrategy: string;
 }>();
 
-vi.mock('@abd/satellite-sdk', () => ({
+vi.mock('@ajabadia/satellite-sdk', () => ({
   // ── Session ──
   getIndustrialSession: vi.fn().mockResolvedValue({
     authenticated: true,

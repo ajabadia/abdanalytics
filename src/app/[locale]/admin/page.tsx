@@ -1,9 +1,9 @@
 import { Suspense } from 'react';
 import { getTranslations } from 'next-intl/server';
-import { ensureIndustrialAccess } from '@/lib/session';
+import { ensureIndustrialAccess } from '@ajabadia/satellite-sdk';
 import { LayoutDashboard } from 'lucide-react';
-import { AdminPageHeader } from '@abd/styles';
-import { GlobalFooter } from '@abd/ecosystem-widgets';
+import { AdminPageHeader } from '@ajabadia/styles';
+import { GlobalFooter } from '@ajabadia/ecosystem-widgets';
 import { getDashboardMetrics } from '@/actions/dashboard-actions';
 import DashboardClient from '@/components/admin/DashboardClient';
 import DashboardSkeleton from '@/components/admin/DashboardSkeleton';

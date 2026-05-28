@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { getLocale } from "next-intl/server";
-import { getIndustrialSession, BrandingStyles } from "@abd/satellite-sdk";
-import { SessionProvider } from "@abd/satellite-sdk/client";
+import { getIndustrialSession, BrandingStyles } from "@ajabadia/satellite-sdk";
+import { SessionProvider } from "@ajabadia/satellite-sdk/client";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 import "./globals.css";

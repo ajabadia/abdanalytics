@@ -4,7 +4,7 @@ import React from 'react';
 import { Home, Terminal, ShieldCheck } from 'lucide-react';
 import { useTranslations, useLocale } from 'next-intl';
 import { usePathname, useRouter } from '@/i18n/routing';
-import { SmartNavbar, buildSidebarLinks } from '@abd/ecosystem-widgets';
+import { SmartNavbar, buildSidebarLinks } from '@ajabadia/ecosystem-widgets';
 
 interface UserSession {
   authenticated: boolean;
