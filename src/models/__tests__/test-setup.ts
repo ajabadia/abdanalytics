@@ -5,7 +5,7 @@ import { AsyncLocalStorage } from 'async_hooks';
 // ── Mock @ajabadia/satellite-sdk ───────────────────────────────
 // Must be at top level for Vitest hoisting. Use `var` to avoid temporal dead zone
 // in the mock factory closure (var is hoisted and initialized to undefined).
-// eslint-disable-next-line prefer-const
+// eslint-disable-next-line prefer-const, no-var
 var tenantStorage = new AsyncLocalStorage<{
   tenantId: string;
   dbPrefix: string;

@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ABDLogs | Governance & Telemetry",
+  title: "ABDAnalytics | Governance & Telemetry",
   description: "High-performance platform for log governance and telemetry monitoring.",
   icons: [{ rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml' }],
 };

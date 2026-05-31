@@ -5,14 +5,14 @@ import { routing } from './i18n/routing';
 const intlMiddleware = createMiddleware(routing);
 
 /**
- * 🛰️ ABDLogs Proxy Guard
+ * 🛰️ ABDAnalytics Proxy Guard
  * Next.js 16 centralized ecosystem proxy guard utilizing @ajabadia/satellite-sdk.
  */
 export const proxy = withIndustrialAuth({
   appId: process.env.NEXT_PUBLIC_APP_ID as string,
   clientId: process.env.AUTH_CLIENT_ID as string,
   clientSecret: process.env.AUTH_CLIENT_SECRET || '',
-  jwtSecret: process.env.AUTH_JWT_SECRET || '',
+  jwtSecret: process.env.AUTH_JWT_SECRET!,
   publicPaths: ['/', '/logout-success'],
   intlMiddleware,
 });
