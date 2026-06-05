@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { getTranslations } from 'next-intl/server';
 import { ensureIndustrialAccess } from '@ajabadia/satellite-sdk';
+import { assertAccess } from '@/lib/abac';
 import { LayoutDashboard, ArrowLeft } from 'lucide-react';
 import { AdminPageHeader } from '@ajabadia/styles';
 import { GlobalFooter } from '@ajabadia/ecosystem-widgets';
@@ -26,7 +27,15 @@ export default async function AdminPortalPage({ params }: { params: Promise<{ lo
   const a = await getTranslations('analytics');
 
   // 🛡️ Ecosystem Identity Guard
-  const user = await ensureIndustrialAccess('ADMIN');
+  const user = await ensureIndustrialAccess();
+  
+  // 🛡️ Central ABAC Guard
+  await assertAccess({
+    userId: user.id,
+    tenantId: user.tenantId,
+    resource: 'analytics:dashboard',
+    action: 'view'
+  });
 
   return (
     <main className="min-h-screen bg-background text-foreground p-6 md:p-12 selection:bg-primary/30" role="main">
