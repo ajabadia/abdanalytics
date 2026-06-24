@@ -1,3 +1,13 @@
+/**
+ * @purpose Renderiza el layout para una página específica del lugar en ABDAnalytics, incluyendo navegación, marca y componentes de análisis.
+ * @purpose_en Renders the layout for a locale-specific page in ABDAnalytics, including navigation, branding, and analytics components.
+ * @refactorable false
+ * @classification UI Component
+ * @complexity Medium
+ * @fingerprint exports:1,imports:11,sig:1c5rshr
+ * @lastUpdated 2026-06-21T09:12:37.256Z
+ */
+
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { Toaster } from "sonner";

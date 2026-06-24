@@ -1,4 +1,15 @@
+/**
+ * @purpose Gestiona rutas de autenticación para la aplicación utilizando un manejo de excepciones.
+ * @purpose_en Manages authentication routes for the application using a catch-all handler.
+ * @refactorable false
+ * @classification Business Service
+ * @complexity Low
+ * @fingerprint exports:2,imports:2,sig:gaq7hy
+ * @lastUpdated 2026-06-23T22:36:55.901Z
+ */
+
 import { createAuthRouteHandler } from '@ajabadia/satellite-sdk';
+import { NextRequest } from 'next/server';
 
 /**
  * 🛰️ Catch-All SSO Auth Route Handler
@@ -11,10 +22,10 @@ const handler = createAuthRouteHandler({
   jwtSecret: process.env.AUTH_JWT_SECRET!,
 });
 
-export async function GET(request: any, context: any) {
+export async function GET(request: NextRequest) {
   return handler(request);
 }
 
-export async function POST(request: any, context: any) {
+export async function POST(request: NextRequest) {
   return handler(request);
 }

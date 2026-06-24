@@ -1,5 +1,15 @@
 'use client';
 
+/**
+ * @purpose Renderiza un componente de tabla para el sistema de gestión de aprendizaje (LMS) en la aplicación ABDAnalytics, mostrando distribución de calificaciones y análisis de preguntas gráficos.
+ * @purpose_en Renders a tab component for the LMS (Learning Management System) in the ABDAnalytics application, displaying grade distribution and question analysis charts.
+ * @refactorable true (contains too many state variables and UI parts)
+ * @classification UI Component
+ * @complexity Medium
+ * @fingerprint exports:1,imports:4,sig:1cfnjug
+ * @lastUpdated 2026-06-21T09:13:07.254Z
+ */
+
 import React from 'react';
 import { 
   ResponsiveContainer, 

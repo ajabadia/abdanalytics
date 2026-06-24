@@ -1,3 +1,13 @@
+/**
+ * @purpose Gestiona datos de análisis de autenticación para inquilinos utilizando MongoDB.
+ * @purpose_en Manages authentication analytics data for tenants using MongoDB.
+ * @refactorable false
+ * @classification Type Definition
+ * @complexity Low
+ * @fingerprint exports:1,imports:2,sig:h9gsdm
+ * @lastUpdated 2026-06-21T09:25:50.625Z
+ */
+
 import mongoose, { Schema, Document } from 'mongoose';
 import { getTenantModel } from '@ajabadia/satellite-sdk';
 

@@ -1,3 +1,13 @@
+/**
+ * @purpose Renderiza la página principal del aplicativo ABDAnalytics, incluyendo un encabezado heroico, botones CTA y pie de página con elementos de telemetrya.
+ * @purpose_en Renders the home page of the ABDAnalytics application, including a hero header, CTA buttons, and footer with telemetry items.
+ * @refactorable true (contains too many state variables and UI parts)
+ * @classification UI Component
+ * @complexity Low
+ * @fingerprint exports:1,imports:5,sig:1iler46
+ * @lastUpdated 2026-06-21T09:12:46.761Z
+ */
+
 import { getTranslations } from 'next-intl/server';
 import { ArrowRight, Cpu, Sliders, Database, ShieldCheck } from 'lucide-react';
 import { HeroHeader } from '@ajabadia/styles';

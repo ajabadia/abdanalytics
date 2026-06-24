@@ -1,4 +1,14 @@
 /**
+ * @purpose Gestiona la estructura para métricas del panel de control utilizadas en el panel administrativo ABD.
+ * @purpose_en Defines the structure for dashboard metrics used in the ABD admin dashboard.
+ * @refactorable false
+ * @classification Type Definition
+ * @complexity Low
+ * @fingerprint exports:1,imports:0,sig:bouejo
+ * @lastUpdated 2026-06-23T22:37:18.791Z
+ */
+
+/**
  * 🛰️ Consolidated dashboard metrics for the ABD admin dashboard.
  */
 export interface DashboardMetrics {

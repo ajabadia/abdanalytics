@@ -1,3 +1,13 @@
+/**
+ * @purpose Gestiona el esquema y modelo para datos de análisis de cursos en una base de datos MongoDB, incluyendo detalles específicos para los inquilinos, estadísticas de inscripción de estudiantes, tasas de completitud, calificaciones, curvas de aprendizaje y telemetry de distractor.
+ * @purpose_en Manages the schema and model for course analytics data in a MongoDB database, including tenant-specific details, student enrollment statistics, completion rates, grades, learning curves, and distractor telemetry.
+ * @refactorable false
+ * @classification Type Definition
+ * @complexity Low
+ * @fingerprint exports:1,imports:2,sig:zgh6ou
+ * @lastUpdated 2026-06-21T09:26:04.302Z
+ */
+
 import mongoose, { Schema, Document } from 'mongoose';
 import { getTenantModel } from '@ajabadia/satellite-sdk';
 

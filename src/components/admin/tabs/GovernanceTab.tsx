@@ -1,5 +1,15 @@
 'use client';
 
+/**
+ * @purpose Renderiza un componente de tabla para métricas de gobernanza, incluyendo el uso de almacenamiento de espacio y métricas adicionales espaciales.
+ * @purpose_en Renders a tab component for governance metrics, including space storage utilization and additional spatial metrics.
+ * @refactorable true (contains too many state variables and UI parts)
+ * @classification UI Component
+ * @complexity Low
+ * @fingerprint exports:1,imports:4,sig:13y9wss
+ * @lastUpdated 2026-06-21T09:13:02.247Z
+ */
+
 import React from 'react';
 import { 
   ResponsiveContainer, 

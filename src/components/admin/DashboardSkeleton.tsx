@@ -1,5 +1,15 @@
 'use client';
 
+/**
+ * @purpose Renderiza un esqueleto de carga para el panel de control en la aplicación ABDAnalytics.
+ * @purpose_en Renders a loading skeleton for the dashboard in the ABDAnalytics application.
+ * @refactorable false
+ * @classification UI Component
+ * @complexity Low
+ * @fingerprint exports:1,imports:2,sig:19khq6n
+ * @lastUpdated 2026-06-21T09:12:54.951Z
+ */
+
 import React from 'react';
 import { Layers } from 'lucide-react';
 

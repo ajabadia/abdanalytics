@@ -1,3 +1,13 @@
+/**
+ * @purpose Gestiona un esquema de Mongoose y modelo para rastrear datos de análisis de gobernanza, incluyendo métricas específicas del teniente como espacios creados, colaboradores, aplicaciones licenciadas y utilización de espacios.
+ * @purpose_en Defines a Mongoose schema and model for tracking governance analytics data, including tenant-specific metrics like spaces created, collaborators, licensed apps, and space utilization.
+ * @refactorable false
+ * @classification Type Definition
+ * @complexity Low
+ * @fingerprint exports:1,imports:2,sig:1oqogfr
+ * @lastUpdated 2026-06-21T09:26:19.910Z
+ */
+
 import mongoose, { Schema, Document } from 'mongoose';
 import { getTenantModel } from '@ajabadia/satellite-sdk';
 

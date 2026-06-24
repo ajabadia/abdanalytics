@@ -1,3 +1,13 @@
+/**
+ * @purpose Proporciona una vista previa realista de datos.
+ * @purpose_en Generates highly realistic mock data for preview/demo mode in the dashboard.
+ * @refactorable false
+ * @classification Helper Utility
+ * @complexity Low
+ * @fingerprint exports:1,imports:1,sig:oedtng
+ * @lastUpdated 2026-06-23T22:37:14.108Z
+ */
+
 import type { DashboardMetrics } from '@/types/dashboard-metrics';
 
 /**

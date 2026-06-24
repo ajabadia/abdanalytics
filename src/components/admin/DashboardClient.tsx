@@ -1,5 +1,15 @@
 'use client';
 
+/**
+ * @purpose Renderiza un componente de dashboard del cliente con tablas para Suite, LMS, Seguridad y Gobernanza, maneja la navegación por teclado y muestra métricas según el tab que se activa.
+ * @purpose_en Renders a dashboard client component with tabs for Suite, LMS, Security, and Governance, handling keyboard navigation and displaying metrics based on the active tab.
+ * @refactorable true (contains too many state variables and UI parts)
+ * @classification UI Component
+ * @complexity Medium
+ * @fingerprint exports:1,imports:7,sig:13ahgjv
+ * @lastUpdated 2026-06-21T09:12:52.258Z
+ */
+
 import React, { useState, useCallback } from 'react';
 import { AlertTriangle } from 'lucide-react';
 import type { DashboardMetrics } from '@/types/dashboard-metrics';

@@ -1,3 +1,13 @@
+/**
+ * @purpose Gestiona y consolidación de métricas para el panel de dashboard del inquilino activo, maneja tanto datos reales como datos de mockeo.
+ * @purpose_en Fetches and consolidates metrics for the active tenant's dashboard, handling both real data and fallback mock data.
+ * @refactorable true (contains too many state variables and UI parts)
+ * @classification Business Service
+ * @complexity Medium
+ * @fingerprint exports:1,imports:7,sig:1r4m06a
+ * @lastUpdated 2026-06-23T22:36:45.356Z
+ */
+
 'use server';
 
 import { withTenantContext } from '@ajabadia/satellite-sdk';

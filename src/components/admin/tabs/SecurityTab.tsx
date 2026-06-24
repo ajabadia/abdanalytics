@@ -1,5 +1,15 @@
 'use client';
 
+/**
+ * @purpose Renderiza una pestaña en la interfaz administrativa que muestra métricas de seguridad, incluyendo tasas de adopción del MFA y total logins.
+ * @purpose_en Renders a tab in the admin interface displaying security metrics, including MFA adoption rates and total logins.
+ * @refactorable true (contains too many state variables and UI parts)
+ * @classification UI Component
+ * @complexity Low
+ * @fingerprint exports:1,imports:4,sig:1u2wcgz
+ * @lastUpdated 2026-06-21T09:13:11.768Z
+ */
+
 import React from 'react';
 import { 
   ResponsiveContainer, 

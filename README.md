@@ -1,5 +1,7 @@
 # 📊 ABD Analytics Microservice (ABDBoard)
 
+[![ERA 11 Certified](https://img.shields.io/badge/ERA%2011-CERTIFIED-brightgreen?style=for-the-badge&logo=shield)](../.github/workflows/audit.yml)
+
 Consola unificada de analíticas, KPIs de negocio, reportes de cumplimiento y firma criptográfica de certificados para todo el ecosistema **ABD**.
 
 ---
@@ -17,16 +19,16 @@ El microservicio está desarrollado bajo los estándares de la suite y aprovecha
 ## 🛠️ Guía de Inicio Rápido
 
 ### Requisitos Previos
-Configurar las variables de entorno en el archivo [**.env.local**](file:///d:/desarrollos/ABDAnalytics/.env.local):
+Configurar las variables de entorno en el archivo `.env.local`:
 ```env
 NEXT_PUBLIC_APP_ID="analytics"
 MONGODB_URI=mongodb+srv://...
 DATABASE_URL=mongodb+srv://...
-NEXT_PUBLIC_APP_URL=http://localhost:3700
+NEXT_PUBLIC_APP_URL=http://localhost:5004
 ```
 
 ### Comandos de Desarrollo
-Para arrancar el servidor local en el puerto oficial **`3700`**:
+Para arrancar el servidor local en el puerto oficial **`5004`**:
 ```powershell
 # Levantar el entorno local
 .\start.bat

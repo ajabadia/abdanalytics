@@ -1,3 +1,13 @@
+/**
+ * @purpose Gestiona un entorno de prueba para la aplicación ABDAnalytics, simulando dependencias y configurando conexiones con MongoDB.
+ * @purpose_en Sets up a test environment for the ABDAnalytics application, mocking dependencies and configuring MongoDB connections.
+ * @refactorable true (contains too many state variables and UI parts)
+ * @classification Helper Utility
+ * @complexity Low
+ * @fingerprint exports:2,imports:3,sig:hk6j96
+ * @lastUpdated 2026-06-21T09:26:44.102Z
+ */
+
 import { vi, beforeAll, afterAll } from 'vitest';
 import mongoose from 'mongoose';
 import { AsyncLocalStorage } from 'async_hooks';

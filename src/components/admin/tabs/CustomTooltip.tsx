@@ -1,5 +1,15 @@
 'use client';
 
+/**
+ * @purpose Renderiza un componente tooltip personalizado que muestra datos de carga con etiquetas y formato opcional.
+ * @purpose_en Renders a custom tooltip component that displays payload data with labels and optional formatting.
+ * @refactorable false
+ * @classification UI Component
+ * @complexity Low
+ * @fingerprint exports:3,imports:1,sig:u6fopg
+ * @lastUpdated 2026-06-21T09:12:57.733Z
+ */
+
 import React from 'react';
 
 export interface TooltipPayloadItem {
