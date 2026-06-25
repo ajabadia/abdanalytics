@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import mongoose from 'mongoose';
 import { setupTestEnvironment, mockConnection } from './test-setup';
-import { withTenantContext } from '@ajabadia/satellite-sdk';
+import { withTenantContext } from '@ajabadia/satellite-sdk/db';
 import UserCourseSummary from '../UserCourseSummary';
 import CourseAnalytics from '../CourseAnalytics';
 

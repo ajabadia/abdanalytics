@@ -10,8 +10,8 @@
  * @lastUpdated 2026-06-21T09:12:52.258Z
  */
 
-import React, { useState, useCallback } from 'react';
-import { AlertTriangle } from 'lucide-react';
+import React, { useState, useCallback, useEffect } from 'react';
+import { AlertTriangle, HardDrive } from 'lucide-react';
 import type { DashboardMetrics } from '@/types/dashboard-metrics';
 import SuiteTab from './tabs/SuiteTab';
 import LmsTab from './tabs/LmsTab';
@@ -36,6 +36,18 @@ export default function DashboardClient({ metrics, locale }: DashboardClientProp
     security: null,
     governance: null,
   });
+
+  const [storageProvider, setStorageProvider] = useState<string>('CARGANDO...');
+
+  useEffect(() => {
+    fetch('/files/api/v1/storage/active-provider')
+      .then(r => r.ok ? r.json() : { provider: 'CLOUDINARY' })
+      .then(d => setStorageProvider(d.provider || 'CLOUDINARY'))
+      .catch((e) => {
+        console.warn('[STORAGE_PROVIDER] Fetch failed, using default', e);
+        setStorageProvider('CLOUDINARY');
+      });
+  }, []);
 
   const handleKeyDown = useCallback((e: React.KeyboardEvent, currentTab: TabId) => {
     let nextIndex: number;
@@ -90,6 +102,15 @@ export default function DashboardClient({ metrics, locale }: DashboardClientProp
           </div>
         </div>
       )}
+
+      {/* Active Storage Provider */}
+      <div className="bg-card border p-4 rounded flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <HardDrive className="w-4 h-4 text-muted-foreground" />
+          <span className="text-[9px] font-mono font-black text-muted-foreground uppercase">ALMACENAMIENTO_ACTIVO</span>
+        </div>
+        <div className="text-lg font-mono font-black text-[#2dd4bf] uppercase">{storageProvider}</div>
+      </div>
 
       {/* Tabs navigation in compliance with industrial design */}
       <div className="flex flex-wrap gap-2 border-b border-border/40 pb-px" role="tablist" aria-label={locale === 'es' ? 'Paneles de analíticas' : 'Analytics panels'}>

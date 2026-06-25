@@ -1,15 +1,15 @@
 /**
- * @purpose Gestiona los datos resumen del curso de usuario utilizando la esquema de Mongoose.
- * @purpose_en Manages user course summary data using Mongoose schema.
+ * @purpose Gestiona un esquema de mongoose para administrar datos de resumen de cursos de los usuarios.
+ * @purpose_en Defines a Mongoose schema for managing user course summary data.
  * @refactorable false
  * @classification Type Definition
  * @complexity Low
  * @fingerprint exports:1,imports:2,sig:d8c8pa
- * @lastUpdated 2026-06-21T09:26:30.156Z
+ * @lastUpdated 2026-06-25T10:15:11.526Z
  */
 
 import mongoose, { Schema, Document } from 'mongoose';
-import { getTenantModel } from '@ajabadia/satellite-sdk';
+import { getTenantModel } from '@ajabadia/satellite-sdk/db';
 
 export interface IUserCourseSummary extends Document {
   tenantId: string;

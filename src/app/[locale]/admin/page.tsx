@@ -1,16 +1,16 @@
 /**
- * @purpose Renderiza la página principal del panel administrativo de análisis con un dashboard, gestionando el acceso de usuario y las traducciones locales específicas.
+ * @purpose Gestiona el portal de análisis administrativo central con una vista de dashboard, maneja acceso de usuario y traducciones locales específicas.
  * @purpose_en Renders the central admin analytics portal page with a dashboard, handling user access and locale-specific translations.
  * @refactorable true (contains too many state variables and UI parts)
  * @classification UI Component
  * @complexity Medium
  * @fingerprint exports:1,imports:11,sig:1nln7im
- * @lastUpdated 2026-06-23T22:37:01.045Z
+ * @lastUpdated 2026-06-25T10:14:12.112Z
  */
 
 import { Suspense } from 'react';
 import { getTranslations } from 'next-intl/server';
-import { ensureIndustrialAccess } from '@ajabadia/satellite-sdk';
+import { ensureIndustrialAccess } from '@ajabadia/satellite-sdk/auth-middleware';
 import { assertAccess } from '@/lib/abac';
 import { LayoutDashboard, ArrowLeft } from 'lucide-react';
 import { AdminPageHeader } from '@ajabadia/styles';

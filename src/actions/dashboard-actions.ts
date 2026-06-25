@@ -10,7 +10,7 @@
 
 'use server';
 
-import { withTenantContext } from '@ajabadia/satellite-sdk';
+import { withTenantContext } from '@ajabadia/satellite-sdk/db';
 import type { DashboardMetrics } from '@/types/dashboard-metrics';
 import { getMockDashboardMetrics } from '@/lib/mock-dashboard-data';
 import UserCourseSummary from '@/models/UserCourseSummary';

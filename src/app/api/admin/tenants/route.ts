@@ -9,7 +9,8 @@
  */
 
 import { NextResponse } from 'next/server';
-import { ensureIndustrialAccess, getGlobalModel } from '@ajabadia/satellite-sdk';
+import { ensureIndustrialAccess } from '@ajabadia/satellite-sdk/auth-middleware';
+import { getGlobalModel } from '@ajabadia/satellite-sdk/db';
 import mongoose from 'mongoose';
 
 export const revalidate = 0; // Evitar el cacheado estático de la API

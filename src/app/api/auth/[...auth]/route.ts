@@ -8,7 +8,7 @@
  * @lastUpdated 2026-06-23T22:36:55.901Z
  */
 
-import { createAuthRouteHandler } from '@ajabadia/satellite-sdk';
+import { createAuthRouteHandler } from '@ajabadia/satellite-sdk/auth-middleware';
 import { NextRequest } from 'next/server';
 
 /**

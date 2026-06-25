@@ -4,8 +4,8 @@
  * @refactorable true (contains too many state variables and UI parts)
  * @classification Helper Utility
  * @complexity Low
- * @fingerprint exports:2,imports:3,sig:hk6j96
- * @lastUpdated 2026-06-21T09:26:44.102Z
+ * @fingerprint exports:2,imports:3,sig:1ldqled
+ * @lastUpdated 2026-06-25T10:15:17.434Z
  */
 
 import { vi, beforeAll, afterAll } from 'vitest';
@@ -22,8 +22,7 @@ var tenantStorage = new AsyncLocalStorage<{
   isolationStrategy: string;
 }>();
 
-vi.mock('@ajabadia/satellite-sdk', () => ({
-  // ── Session ──
+vi.mock('@ajabadia/satellite-sdk/auth-middleware', () => ({
   getIndustrialSession: vi.fn().mockResolvedValue({
     authenticated: true,
     user: {
@@ -32,12 +31,11 @@ vi.mock('@ajabadia/satellite-sdk', () => ({
       isolationStrategy: 'COLLECTION_PREFIX',
     },
   }),
+}));
 
-  // ── Tenant Context ──
+vi.mock('@ajabadia/satellite-sdk/db', () => ({
   TenantContext: class {},
   tenantStorage,
-
-  // ── Tenant Connection helpers (used by getTenantModel) ──
   resolveTenantUri: (prefix: string) =>
     `mongodb://localhost:27017/abd_tenant_${prefix}`,
   getTenantConnection: (_dbPrefix: string, _isolationStrategy: string) => {
@@ -45,8 +43,6 @@ vi.mock('@ajabadia/satellite-sdk', () => ({
     return mongoose.createConnection(uri);
   },
   ensureConnectionReady: async () => {},
-
-  // ── Tenant Model ──
   getTenantModel: (modelName: string, schema: mongoose.Schema) => {
     const defaultModel =
       (mongoose.models[modelName] as mongoose.Model<unknown>) ||
@@ -102,9 +98,6 @@ vi.mock('@ajabadia/satellite-sdk', () => ({
       },
     }) as unknown as mongoose.Model<unknown>;
   },
-
-
-  // ── Tenant Context Runner ──
   withTenantContext: async <T>(
     callback: () => Promise<T>,
     explicitContext?: {
