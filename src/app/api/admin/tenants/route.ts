@@ -1,11 +1,11 @@
 /**
- * @purpose Gestiona la solicitud GET para recuperar una lista de inquilinos, asegurando el acceso solo para usuarios SUPER_ADMIN.
- * @purpose_en Handles the GET request to retrieve a list of tenants, ensuring access for only SUPER_ADMIN users.
+ * @purpose Gestiona el solicitud GET para obtener una lista de inquilinos, asegurando que solo los usuarios SUPER_ADMIN tengan acceso.
+ * @purpose_en Manages the GET request to retrieve a list of tenants, ensuring access for only SUPER_ADMIN users.
  * @refactorable false
  * @classification Business Service
  * @complexity Low
- * @fingerprint exports:2,imports:3,sig:1q3eeak
- * @lastUpdated 2026-06-21T09:03:22.503Z
+ * @fingerprint exports:2,imports:4,sig:647vex
+ * @lastUpdated 2026-06-26T09:59:03.216Z
  */
 
 import { NextResponse } from 'next/server';
