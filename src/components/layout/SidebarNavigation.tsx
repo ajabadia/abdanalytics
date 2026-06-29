@@ -1,20 +1,9 @@
 'use client';
 
-/**
- * @purpose Renderiza un componente de navegación lateral con enlaces y maneja cambios de sesión, idioma y salida.
- * @purpose_en Renders a sidebar navigation component with links and handles user session, locale changes, and logout functionality.
- * @refactorable true (contains too many state variables and UI parts)
- * @classification UI Component
- * @complexity Medium
- * @fingerprint exports:1,imports:5,sig:74tyoa
- * @lastUpdated 2026-06-26T15:32:23.832Z
- */
-
 import React from 'react';
 import { Home, Terminal, ShieldCheck } from 'lucide-react';
 import { useTranslations, useLocale } from 'next-intl';
-import { usePathname, useRouter } from '@/i18n/routing';
-import { SmartNavbar, buildSidebarLinks } from '@ajabadia/ecosystem-widgets';
+import { AppSidebarNavigation, type AppSidebarLink } from '@ajabadia/ecosystem-widgets';
 
 interface UserSession {
   authenticated: boolean;
@@ -40,24 +29,13 @@ interface SidebarNavigationProps {
 export function SidebarNavigation({ session, logoUrl, tenantSelectorSlot, settingsSlot }: SidebarNavigationProps) {
   const t = useTranslations('common');
   const locale = useLocale();
-  const pathname = usePathname();
-  const router = useRouter();
-  const [queryStr, setQueryStr] = React.useState('');
-
-  React.useEffect(() => {
-    React.startTransition(() => {
-      setQueryStr(window.location.search.substring(1));
-    });
-  }, []);
   const [logsAuditUrl, setLogsAuditUrl] = React.useState<string>('/admin/audit');
 
   React.useEffect(() => {
     const hostname = window.location.hostname;
     if (hostname === 'localhost' || hostname === '127.0.0.1') {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLogsAuditUrl(`http://localhost:5003/${locale}/admin/audit`);
     } else {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLogsAuditUrl(`/admin/audit`);
     }
   }, [locale]);
@@ -65,7 +43,7 @@ export function SidebarNavigation({ session, logoUrl, tenantSelectorSlot, settin
   const isLoggedIn = session.authenticated && !!session.user;
   const user = session.user;
 
-  const allLinks = [
+  const allLinks: AppSidebarLink[] = [
     {
       href: '/',
       label: locale === 'es' ? 'Bienvenida' : 'Welcome',
@@ -83,55 +61,18 @@ export function SidebarNavigation({ session, logoUrl, tenantSelectorSlot, settin
       icon: <Terminal size={14} />,
       requiresAdmin: true
     }
-  ] as const;
-
-  const links = buildSidebarLinks(allLinks, user?.role, isLoggedIn);
+  ];
 
   const finalLogoUrl = logoUrl || (isLoggedIn && user?.branding ? user.branding.logoUrl : null);
 
-  // Preserve query params across navigation
-  const transformHref = (href: string) => {
-    return queryStr ? `${href}?${queryStr}` : href;
-  };
-
-  const handleLocaleChange = (newLocale: string) => {
-    let domainSuffix = "";
-    const hostname = window.location.hostname;
-    if (hostname !== "localhost" && hostname !== "127.0.0.1") {
-      const parts = hostname.split('.');
-      if (parts.length >= 2) {
-        domainSuffix = `; domain=.${parts.slice(-2).join('.')}`;
-      }
-    }
-    document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000; SameSite=Lax${domainSuffix}`;
-    const search = typeof window !== 'undefined' ? window.location.search : '';
-    router.replace(`${pathname}${search}`, { locale: newLocale });
-  };
-
   return (
-    <SmartNavbar
+    <AppSidebarNavigation
       session={session}
-      links={links}
       logoUrl={finalLogoUrl}
-      onLogout={() => { window.location.href = '/api/abd-auth/logout'; }}
+      links={allLinks}
       brandName={t('appTitle') || 'ABD SYSTEM'}
-      activeHref={pathname}
-      locale={locale}
-      transformHref={queryStr ? transformHref : undefined}
       tenantSelectorSlot={tenantSelectorSlot}
       settingsSlot={settingsSlot}
-      onLocaleChange={handleLocaleChange}
-      onSearchTrigger={() => {
-        window.dispatchEvent(new CustomEvent('abd-command-palette-open'));
-      }}
-      translations={{
-        brandFallback: t('appTitle') || 'ABD SYSTEM',
-        logoutBtn: locale === 'es' ? 'TERMINAR SESIÓN' : 'SIGN OUT',
-        identityProvider: locale === 'es' ? 'PROVEEDOR DE IDENTIDAD' : 'IDENTITY PROVIDER',
-        statusOnline: locale === 'es' ? 'EN LÍNEA' : 'ONLINE',
-        emailLabel: locale === 'es' ? 'CORREO' : 'EMAIL'
-      }}
     />
   );
 }
-

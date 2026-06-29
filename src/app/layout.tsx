@@ -21,7 +21,7 @@ configureLogger({
   token: process.env.LOGS_SECRET_TOKEN,
   appId: 'ABDAnalytics',
 });
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { ThemeProvider } from "@ajabadia/ecosystem-widgets";
 
 import "./globals.css";
 
