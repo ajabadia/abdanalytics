@@ -1,11 +1,11 @@
 /**
- * @purpose Renderiza el layout para una página específica del local en ABDAnalytics, incluyendo navegación, marca y componentes de análisis.
+ * @purpose Renderiza el layout para una página localizada específica en ABDAnalytics, incluyendo navegación, marca y componentes de análisis.
  * @purpose_en Renders the layout for a locale-specific page in ABDAnalytics, including navigation, branding, and analytics components.
  * @refactorable false
  * @classification UI Component
  * @complexity Low
- * @fingerprint exports:1,imports:7,sig:7hrss0
- * @lastUpdated 2026-06-29T00:00:00.000Z
+ * @fingerprint exports:1,imports:8,sig:1wiy3yr
+ * @lastUpdated 2026-06-30T05:48:50.628Z
  */
 
 import { getMessages } from "next-intl/server";

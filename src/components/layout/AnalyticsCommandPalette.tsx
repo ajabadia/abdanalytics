@@ -3,11 +3,11 @@
 /**
  * @purpose Renderiza una pestaña de comandos con opciones de navegación y configuración para la aplicación de análisis.
  * @purpose_en Renders a command palette with various navigation and settings options for the Analytics application.
- * @refactorable true (contains too many state variables and UI parts)
+ * @refactorable false
  * @classification UI Component
  * @complexity Low
- * @fingerprint exports:1,imports:5,sig:ejpyli
- * @lastUpdated 2026-06-21T09:15:54.164Z
+ * @fingerprint exports:1,imports:5,sig:5ha22r
+ * @lastUpdated 2026-06-30T05:48:51.900Z
  */
 
 import React from 'react';
