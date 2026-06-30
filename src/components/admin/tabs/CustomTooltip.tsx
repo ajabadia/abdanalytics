@@ -35,10 +35,10 @@ export const CustomTooltip = ({ active, payload, label }: TooltipProps) => {
             valueString = `${(item.value / 1024 / 1024 / 1024).toFixed(2)} GB`;
           }
           const colorClass = 
-            index === 0 ? 'text-[#0ea5e9]' :
-            index === 1 ? 'text-[#10b981]' :
-            index === 2 ? 'text-[#f59e0b]' :
-            index === 3 ? 'text-[#ef4444]' : 'text-[#8b5cf6]';
+            index === 0 ? 'text-sky-500' :
+            index === 1 ? 'text-emerald-500' :
+            index === 2 ? 'text-amber-500' :
+            index === 3 ? 'text-red-500' : 'text-violet-500';
           return (
             <p key={index} className={`tracking-tight uppercase ${colorClass}`}>
               {item.name ? `${item.name}: ` : ''}

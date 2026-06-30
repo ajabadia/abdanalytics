@@ -109,7 +109,7 @@ export default function DashboardClient({ metrics, locale }: DashboardClientProp
           <HardDrive className="w-4 h-4 text-muted-foreground" />
           <span className="text-[9px] font-mono font-black text-muted-foreground uppercase">ALMACENAMIENTO_ACTIVO</span>
         </div>
-        <div className="text-lg font-mono font-black text-[#2dd4bf] uppercase">{storageProvider}</div>
+        <div className="text-lg font-mono font-black text-primary uppercase">{storageProvider}</div>
       </div>
 
       {/* Tabs navigation in compliance with industrial design */}
