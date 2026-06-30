@@ -1,5 +1,15 @@
 'use client';
 
+/**
+ * @purpose Renderiza un componente de navegación lateral con enlaces y maneja los datos de sesión del usuario.
+ * @purpose_en Renders a sidebar navigation component with links and handles user session data.
+ * @refactorable false
+ * @classification UI Component
+ * @complexity Medium
+ * @fingerprint exports:1,imports:4,sig:ht9cav
+ * @lastUpdated 2026-06-29T22:22:24.415Z
+ */
+
 import React from 'react';
 import { Home, Terminal, ShieldCheck } from 'lucide-react';
 import { useTranslations, useLocale } from 'next-intl';
@@ -70,7 +80,8 @@ export function SidebarNavigation({ session, logoUrl, tenantSelectorSlot, settin
       session={session}
       logoUrl={finalLogoUrl}
       links={allLinks}
-      brandName={t('appTitle') || 'ABD SYSTEM'}
+      brandName={t('appTitle') || 'ABD Suite'}
+      appBadge="ANALYTICS"
       tenantSelectorSlot={tenantSelectorSlot}
       settingsSlot={settingsSlot}
     />
