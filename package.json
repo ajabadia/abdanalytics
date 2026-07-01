@@ -17,7 +17,7 @@
   "dependencies": {
     "@ajabadia/ecosystem-widgets": "^1.0.83",
     "@ajabadia/i18n": "^1.0.42",
-    "@ajabadia/satellite-sdk": "^1.0.90",
+    "@ajabadia/satellite-sdk": "^1.0.96",
     "@ajabadia/styles": "^1.0.93",
     "@radix-ui/react-progress": "^1.1.8",
     "class-variance-authority": "0.7.1",
